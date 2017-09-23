@@ -4,7 +4,7 @@ class UserModel {
 	public $mysqli;
 	public function __construct() {
 			header("Content-type: text/html;charset=utf-8");//显示汉字
-			$this->mysqli = new mysqli("localhost","root","","ztstu");//连接数据库)
+			$this->mysqli = new mysqli("localhost","root","","ztnew");//连接数据库)
 	}
 	public function addUser($name,$age,$password) {
 			$sql = "insert into user(name,age,password) value ('{$name}', {$age}, '{$password}')";

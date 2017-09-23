@@ -1,4 +1,5 @@
 <?php	
+	header("Content-type: text/html;charset=utf-8");
 	//单入口文件
 	$controller =isset($_GET['c']) ? $_GET['c'] :'User';
 	$action = isset($_GET['a']) ? $_GET['a'] :  'lists';	
