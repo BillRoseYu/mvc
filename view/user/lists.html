@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8>
+	<title>查询表单</title>
+	<style type="text/css">
+	h1 { text-align:center;}
+	table { margin:0 auto;}
+	td { width: 100px;text-align:center;}
+	body { width: 1000px;text-align:center;}
+	form { margin: 0 auto;width: 100px;}
+
+	</style>
+</head>
+<body>
+
+	<table border="1px" cellpadding="0" cellspacing="0">
+	<caption>表单</caption>
+	<tr>
+		<td>id</td>
+		<td>name</td>
+		<td>age</td>
+		<td>password</td>
+		<td>handle</td>
+	</tr>
+	<?php foreach ($data as $key => $value) { ?>
+	<tr>
+		<td><?php echo $value['id'] ;?></td>
+		<td><?php echo $value['name'] ;?></td>
+		<td><?php echo $value['age'] ;?></td>
+		<td><?php echo $value['password'] ;?></td>
+		<td>
+		<a href="index.php?c=User&a=delete&id= <?php echo $value['id']; ?>">del</a>
+		<a href="index.php?c=User&a=update&id=<?php echo $value['id']; ?>">eidt</a>
+
+		</td>
+	</tr>
+	 <?php	} ?>
+	</table>
+		<a href="index.php?c=User&a=add">add</a>
+
+</body>
+</html>
