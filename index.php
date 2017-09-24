@@ -1,9 +1,9 @@
 <?php	
 	header("Content-type: text/html;charset=utf-8");
 	//单入口文件
-	$controller =isset($_GET['c']) ? $_GET['c'] :'User';
+	$controller =isset($_GET['c']) ? $_GET['c'] :'Blog';
 	$action = isset($_GET['a']) ? $_GET['a'] :  'lists';	
-	//自动加载
+	session_start();
 	function __autoload($class) {	//当实例化一个不存在的类的时候php会自动执行
 		if (strpos($class, "Controller" )!== false) {
 			$dir = 'controller';

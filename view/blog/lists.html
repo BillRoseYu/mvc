@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body {width:1000px;margin: 0 auto}
+		table {margin:0 auto;}
+		td {width:100px;text-align:center;}
+	</style>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<?php if(isset($_SESSION['me']['id'])){ ?>
+ <?php echo "亲爱的".$_SESSION['me']['name']."你好"?>
+<a href="index.php?c=UserCenter&a=logout">注销</a>
+<?php } else { ?>
+		<a href="index.php?c=UserCenter&a=login">登录</a>
+
+
+<?php } ?>
+<table border="1px" cellspacing="0" cellpadding="0"> 
+	<tr>
+		<td>id</td>
+		<td>content</td>
+		<td>user_id</td>
+	</tr>
+
+	<?php foreach($data as $key=>$value) { ?>
+	<tr>
+		<td><?php echo $value['id']; ?></td>
+		<td><?php echo mb_substr($value['content'], 0, 19,'utf8'); ?></td>
+		<td><?php echo $value['user_name']; ?></td>
+	</tr>
+	<?php } ?>
+</table>
+<a href="index.php?c=blog&a=add">发布段子	</a>
+</body>
+</html>
