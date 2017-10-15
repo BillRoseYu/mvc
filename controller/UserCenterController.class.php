@@ -9,6 +9,16 @@
 			$verify = $_POST['verify'];
 			$userModel =  new UserModel();
 			$userInfo = $userModel->getUserInfoByName($name);
+			if (!$verify || !$name|| !$password) {
+				header('Refresh:3,Url=index.php?c=usercenter&a=login');
+				echo "参数错误,检查登录名和密码	";
+				die();
+			}
+			if ($verify != $_SESSION['verifyCode']) {
+				header('Refresh:3,Url=index.php?c=usercenter&a=login');
+				echo '登录不成功';
+				die();
+			}
 
 			if ($userInfo['password'] == $password) {
 				unset($userInfo['password']);
