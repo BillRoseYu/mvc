@@ -21,7 +21,9 @@ class UserModel {
 			$sql = "select * from user where id = {$id}";
 			$res = $this->mysqli->query($sql);
 			$data = $res->fetch_all(MYSQL_ASSOC);
-			return $data[0];
+			// echo $sql;
+			// die();
+			return isset($data[0]) ? $data[0] : array();
 	}
 	public function delUser() {
 		$id = $_GET['id'] ? (int)$_GET['id'] : 0;

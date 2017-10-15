@@ -5,8 +5,8 @@
 			$this->mysqli = new mysqli("127.0.0.1","root","","ztnew");
 			$this->mysqli->query('set names utf8');
 		}
-		function addBlog($user_id, $content) {
-			$sql = "insert into blog(content,user_id) value ('{$content}', {$user_id})";
+		function addBlog($user_id, $content,$image) {
+			$sql = "insert into blog(content,user_id,image) value ('{$content}', {$user_id},'{$image}')";
 			$res = $this->mysqli->query($sql);
 			return $res;
 		}
@@ -22,4 +22,14 @@
 			$data = $res->fetch_all(MYSQL_ASSOC);
 			return $data[0];
 		}
+		function getUserInfoById($id) {
+			$sql = "select * from blog where id = '{$id}'";
+			$res = $this->mysqli->query($sql);
+			$data = $res->fetch_all(MYSQL_ASSOC);
+
+			return isset($data[0]) ? $data[0] : array();
+		}
+
+
+
 	}
